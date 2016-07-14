@@ -3,8 +3,9 @@
 	<%= f.hidden_field :comentavel_type, value: comentavel.class %> 
 	<%= f.label :conteudo %> <br /> 
 	<%= f.text_area :conteudo %>
-    <%= f.submit %> 
-
+	<% if current_usuario %>
+    	<%= f.submit %> 
+    <% end %>
 <% end %>
 
 

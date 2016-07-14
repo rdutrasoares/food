@@ -25,7 +25,7 @@ class ComentariosController < ApplicationController
   # POST /comentarios.json
   def create
     @comentario = Comentario.new(comentario_params)
-
+    @comentario.usuario = current_usuario
     respond_to do |format|
       if @comentario.save
         format.html { redirect_to @comentario, notice: 'Comentario was successfully created.' }
