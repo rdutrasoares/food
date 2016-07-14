@@ -3,11 +3,11 @@
 one:
   cliente_id: 1
   restaurante_id: 1
-  nota: 
+  nota: 10
   valor_gasto: 1.5
 
 two:
   cliente_id: 1
   restaurante_id: 1
-  nota: 
+  nota: 10
   valor_gasto: 1.5

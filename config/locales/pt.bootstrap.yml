@@ -1,0 +1,20 @@
+pt:
+  breadcrumbs:
+    application:
+      root: "listagem"
+    pages:
+      pages: "páginas"
+  helpers:
+    actions: "ações"
+    links:
+      back: "voltar"
+      cancel: "cancelar"
+      confirm: "tem certeza?"
+      destroy: "Delete"
+      new: "Novo"
+      edit: "Editar"
+    titles:
+      edit: "Editar %{model}"
+      save: "Salvar %{model}"
+      new: "Novo %{model}"
+      delete: "Delete %{model}"

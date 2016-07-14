@@ -1,0 +1,14 @@
+<p id='<%= "qualificacao_#{qualificacao.id}" %>'> 
+	<b>Nota: </b> <%= qualificacao.nota %> <br>
+	<b>Valor Gasto: </b><%= qualificacao.valor_gasto %> <br>
+	<b>Cliente: </b><%= qualificacao.cliente.nome rescue nil %> <br>
+	<%= link_to 'remover', qualificacao, method: 'delete', remote: true, id: "remove_qualificacao_#{qualificacao.id}", class: "btn btn-danger btn-sm" %>
+	<div class="page-header"></div>
+</p>
+
+<% content_for :js do %> 
+  $('#remove_qualificacao_<%= qualificacao.id %>')
+   .bind('ajax:success', function(){ 
+    $('#qualificacao_<%= qualificacao.id %>').fadeOut();
+   }); 
+<% end %>

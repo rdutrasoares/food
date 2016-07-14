@@ -30,9 +30,11 @@ class QualificacoesController < ApplicationController
       if @qualificacao.save
         format.html { redirect_to @qualificacao, notice: 'Qualificacao was successfully created.' }
         format.json { render :show, status: :created, location: @qualificacao }
+        format.js 
       else
         format.html { render :new }
         format.json { render json: @qualificacao.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -58,6 +60,7 @@ class QualificacoesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to qualificacoes_url, notice: 'Qualificacao was successfully destroyed.' }
       format.json { head :no_content }
+      format.js { head :ok }
     end
   end
 
@@ -69,6 +72,6 @@ class QualificacoesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def qualificacao_params
-      params.require(:qualificacao).permit(:cliente_id, :restaurante_id, :nota, :valor_gasto)
+      params.require(:qualificacao).permit(:cliente_id, :restaurante_id, :nota, :valor_gasto, :restaurante_id, :cliente_id)
     end
 end

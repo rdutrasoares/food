@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :pratos
   resources :qualificacoes
   resources :clientes
   root to: redirect("/inicio")

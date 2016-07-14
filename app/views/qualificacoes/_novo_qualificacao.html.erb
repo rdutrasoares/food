@@ -1,0 +1,20 @@
+<%= form_for Qualificacao.new, remote: true do |f| %> 
+	<%= f.hidden_field :restaurante_id, value: restaurante.id %> 
+	<%= f.label :nota %> <br /> 
+	<%= f.number_field :nota , class: "form-control"%> <br /> 
+	<%= f.label :valor_gasto %> <br /> 
+	<%= f.number_field :valor_gasto, class: "form-control"%> <br /> 
+	<%= f.label :cliente_id %> <br /> 
+	<%= f.select(:cliente_id, Cliente.all.collect {|i| [i.nome, i.id]}, {}, class: "form-control" )%> <br /> 
+    <%= f.submit class: "btn"%> 
+
+<% end %>
+
+
+<% content_for :js do %> 
+	$('#new_qualificacao').bind('ajax:complete', function(xhr, result){ 
+		$('#qualificacoes').html(result.responseText); 
+		$('textarea').val(""); 
+		$('number_field').val(""); 
+	}); 
+<% end %>

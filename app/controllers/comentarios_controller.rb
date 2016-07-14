@@ -30,6 +30,7 @@ class ComentariosController < ApplicationController
       if @comentario.save
         format.html { redirect_to @comentario, notice: 'Comentario was successfully created.' }
         format.json { render :show, status: :created, location: @comentario }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @comentario.errors, status: :unprocessable_entity }
@@ -58,6 +59,7 @@ class ComentariosController < ApplicationController
     respond_to do |format|
       format.html { redirect_to comentarios_url, notice: 'Comentario was successfully destroyed.' }
       format.json { head :no_content }
+      format.js { head :ok }
     end
   end
 
@@ -69,6 +71,6 @@ class ComentariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comentario_params
-      params.require(:comentario).permit(:conteudo, :author)
+      params.require(:comentario).permit(:conteudo, :author, :comentavel_type, :comentavel_id)
     end
 end
